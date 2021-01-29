@@ -1,1 +1,3 @@
-console.log('Hello World')
+import {init} from "./app";
+
+init();
