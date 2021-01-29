@@ -1,12 +1,12 @@
 import {Server} from "@hapi/hapi";
-import {findAll} from "../controllers/agent.controller"
+import {AgentController} from "../controllers/agent.controller"
 
 export const agentRoutes = (server: Server) => {
 
     server.route({
         method: 'GET',
         path: '/agents',
-        handler: findAll
+        handler: AgentController.findAll
     })
 
     server.route({

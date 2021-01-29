@@ -1,6 +1,13 @@
 import * as jsonData from "../mocks/alerts/alerts.json";
 
-export const findAll = async () => {
-    console.log("en service");
-    return jsonData[0]
+export class AgentService {
+
+    static async findAll() {
+        console.log("en service refactor2");
+        return jsonData[0]
+    }
+
+    static async getAgents() {
+    }
+
 }

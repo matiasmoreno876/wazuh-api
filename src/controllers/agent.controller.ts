@@ -1,13 +1,19 @@
 import {Request, ResponseObject, ResponseToolkit} from "@hapi/hapi";
-import {findAll as serviceFindAll} from "../services/agent.service";
+import {AgentService} from "../services/agent.service";
 
-export const findAll = async (req: Request, res: ResponseToolkit): Promise<ResponseObject> => {
-    try {
-        console.log(req.payload);
-        const json: any = await serviceFindAll();
+export class AgentController {
 
-        return res.response(json).code(200);
-    } catch (error) {
-        return res.response(error).code(500)
+    static async findAll(req: Request, res: ResponseToolkit): Promise<ResponseObject> {
+        try {
+            console.log(req.payload);
+            console.log("refactor controller 2");
+            const json: any = await AgentService.findAll();
+
+            return res.response(json).code(200);
+        } catch (error) {
+            return res.response(error).code(500)
+        }
     }
+
 }
+
