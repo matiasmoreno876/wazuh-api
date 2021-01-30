@@ -33,6 +33,8 @@ export interface Rule {
     nist_800_53: string[];
     gpg13: string[];
     gdpr: string[];
+    total_alerts?: number;
+    alerts?: Alert[];
 }
 
 export interface Agent {
