@@ -18,7 +18,7 @@ export class RulesController {
             console.log(`Find Rules by id: ${req.params.id}`);
             const json = await RulesService.findById(req.params.id);
 
-            return res.response("json").code(200);
+            return res.response(json).code(200);
         } catch (error) {
             return res.response(error).code(500)
         }

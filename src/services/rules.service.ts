@@ -25,16 +25,15 @@ export class RulesService {
     }
 
     public static async findById(id: string) {
-        // try {
-        //     const agents: Agent[] = this.getAgents()
-        //     const agentsFitered: Agent[] = this.fiterById(agents, id);
-        //     const agent: Agent = this.findAndCountAlertAndSetAlertByAgent(agentsFitered, id);
-        //     return agent;
-        // } catch (error) {
-        //     console.log(error);
-        //     throw error;
-        // }
-
+        try {
+            const rules: Rule[] = this.getRule()
+            const rulesFitered: Rule[] = this.fiterById(rules, id);
+            const rule: Rule = this.findAndCountAlertAndSetAlertByAgent(rulesFitered, id);
+            return rule;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
     }
 
     private static getRule() {
@@ -64,4 +63,35 @@ export class RulesService {
         );
         return rules;
     };
+
+    private static fiterById(rules: Rule[], id: string): Rule[] {
+        return rules.filter(f => f.id === id);
+    }
+
+    private static findAndCountAlertAndSetAlertByAgent(rules: Rule[], id: string): Rule {
+        jsonData.map(alert =>
+            rules.map(rule => {
+                    if (alert._source.rule.id === id) {
+                        if (rule.total_alerts) {
+
+                            rule.total_alerts = rule.total_alerts + 1;
+                            // @ts-ignore
+                            rule.alerts.push(alert);
+                            return rule;
+                        } else {
+                            rule.total_alerts = 1;
+                            let alerts = new Array();
+                            alerts.push(alert);
+                            rule.alerts = alerts;
+                            return rule;
+                        }
+                    } else {
+                        return null;
+                    }
+                },
+            ),
+        );
+        return rules[0];
+    };
+
 }
