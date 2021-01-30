@@ -5,9 +5,8 @@ export class AgentController {
 
     static async findAll(req: Request, res: ResponseToolkit): Promise<ResponseObject> {
         try {
-            console.log(req.payload);
-            console.log("refactor controller 2");
-            const json: any = await AgentService.findAll();
+            console.log(`FindAll Agents: offset: ${req.query.offset}, limit: ${req.query.limit} `);
+            const json = await AgentService.findAll(req.query.offset, req.query.limit);
 
             return res.response(json).code(200);
         } catch (error) {
