@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "buildrun": "npm run build && node ./dist/index.js",
+    "develop": "nodemon -e ts --exec \",npm run buildrun\" ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
