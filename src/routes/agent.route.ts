@@ -12,8 +12,7 @@ export const agentRoutes = (server: Server) => {
     server.route({
         method: 'GET',
         path: '/agents/{id}',
-        handler: () => {
-        }
+        handler: AgentController.findById
     })
 
 

@@ -40,6 +40,7 @@ export interface Agent {
     name: string;
     ip: string;
     total_alerts?: number;
+    alerts?: Alert[];
 }
 
 export interface Manager {

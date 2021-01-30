@@ -14,5 +14,16 @@ export class AgentController {
         }
     }
 
+    static async findById(req: Request, res: ResponseToolkit): Promise<ResponseObject> {
+        try {
+            console.log(`Find Agent by id: ${req.params.id}`);
+            const json = await AgentService.findById(req.params.id);
+
+            return res.response(json).code(200);
+        } catch (error) {
+            return res.response(error).code(500)
+        }
+    }
+
 }
 
