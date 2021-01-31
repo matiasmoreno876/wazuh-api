@@ -5,8 +5,9 @@ import {rulesRoutes} from "./routes/rules.route";
 
 export const init = async () => {
     const server: Server = new Server({
-        port: 3000,
-        host: 'localhost'
+        port: 4000,
+        host: 'localhost',
+        routes: { cors: true }
     });
 
     agentRoutes(server);

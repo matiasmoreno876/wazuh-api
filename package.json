@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm run buildrun",
     "build": "tsc",
     "buildrun": "npm run build && node ./dist/index.js",
     "develop": "nodemon -e ts --exec \",npm run buildrun\" ",
