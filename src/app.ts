@@ -2,11 +2,12 @@ import {Server} from '@hapi/hapi'
 import {agentRoutes} from "./routes/agent.route";
 import {alertsRoutes} from "./routes/alerts.route";
 import {rulesRoutes} from "./routes/rules.route";
+require('dotenv').config({path: 'variables.env'})
 
 export const init = async () => {
     const server: Server = new Server({
-        port: 4000,
-        host: 'localhost',
+        port: process.env.PORT || 4000,
+        host: process.env.HOST || 'localhost',
         routes: { cors: true }
     });
 
