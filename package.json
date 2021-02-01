@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm run buildrun",
     "build": "tsc",
     "buildrun": "npm run build && node ./dist/index.js",
     "develop": "nodemon -e ts --exec \",npm run buildrun\" ",
@@ -13,7 +14,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@hapi/hapi": "^20.1.0"
+    "@hapi/hapi": "^20.1.0",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "@types/hapi__hapi": "^20.0.5",
