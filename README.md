@@ -12,7 +12,7 @@ $ npm install
 
 ```bash
 # Run
-$ npm start
+$ npm start:dev
 
 # development
 $ npm run develop
