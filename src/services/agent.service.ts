@@ -14,7 +14,13 @@ export class AgentService {
 
             const result = {
                 tota_items: agentsReduce.length,
-                data: agentsResult
+                data: agentsResult,
+                paging: {
+                    total_items: agentsRemove.length,
+                    offset: offset,
+                    limit: limit,
+                    more_records: !(agentsResult.length < Number(limit))
+                }
             }
 
             return result;

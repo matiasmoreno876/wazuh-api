@@ -13,7 +13,13 @@ export class RulesService {
 
             const result = {
                 tota_items: rulesResult.length,
-                data: rulesResult
+                data: rulesResult,
+                paging: {
+                    total_items: rulesRemove.length,
+                    offset: offset,
+                    limit: limit,
+                    more_records: !(rulesResult.length < Number(limit))
+                }
             }
 
             return result;

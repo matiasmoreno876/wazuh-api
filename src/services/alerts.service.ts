@@ -14,7 +14,13 @@ export class AlertsService {
 
             const result = {
                 tota_items: alertsReduce.length,
-                data: alertsReduce
+                data: alertsReduce,
+                paging: {
+                    total_items: alertsFiltered.length,
+                    offset: offset,
+                    limit: limit,
+                    more_records: !(alertsReduce.length < Number(limit))
+                }
             }
 
             return result

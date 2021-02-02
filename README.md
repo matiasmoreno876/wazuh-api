@@ -21,7 +21,7 @@ $ npm run develop
 $ npm run build
 ```
 ##### Note
-This application will run on [localhost: 3000](https://wazuh.com/)
+This application will run on [localhost: 4000](https://wazuh.com/)
 
 ## Test
 
